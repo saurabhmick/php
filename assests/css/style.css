@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.lname{
+    margin-left:75%;
+}
+ul {
+    color: white;
+    justify-content: space-between;
+    list-style-type: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+#show{
+    vertical-align: text-top !important;
+}
+select{
+    margin:0px 5px 0px 2px !important;
+}
+@media screen (max-width: 568px){
+    .card{
+        width:50%;
+        margin:auto;
+    }
+    
+}
+.footer-widget{
+    position: fixed !important;
+    width:100%;
+    bottom:0;
+    background-color: grey;
+}
