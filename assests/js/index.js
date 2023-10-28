@@ -10,3 +10,5 @@ let passwordShow=()=>{
     (pass[i].type=='password')?pass[i].type="text":pass[i].type="password"; 
     }
 }
+ document.getElementsByClassName
+ 

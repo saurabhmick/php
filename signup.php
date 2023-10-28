@@ -1,8 +1,17 @@
 <?php 
 include('navbar.php');
+include('conn.php');
 if(isset($_POST['submit'])){
-echo"<pre>";
-print_r($_POST);
+$conn=new Connection();
+$con=$conn->conn();
+$data=array(
+    "name"=>$_POST['username'],
+    "email"=>$_POST['email'],
+    "phone"=>$_POST['phone'],
+    "address"=>$_POST['address'],
+    "JoiningDate"=>$_POST['Jdate']
+);
+
 }
 ?>
 
@@ -21,28 +30,29 @@ print_r($_POST);
                    AD SIGNUP FORM 
                 </div>
                 <div class="card-body ">
-                    <form  method="post"  class="form-control>
-                        <label for="fname">Full Name</label>
+                    <form  method="post"  class="form-control">
+                        <label>Full Name</label>
                         <input type="text" name="username"  placeholder="John Smith" class="form-control mb-2">
-                        <label for="fname">Phone Number</label>
+                        <label for="phone">Phone Number</label>
                         <input type="number" name="phone" placeholder="9999999999" class="form-control mb-2">
-                        <label for="fname">Email Address</label>
+                        <label for="email">Email Address</label>
                         <input type="email" name="email"  placeholder="John@adtechnologu.in" class="form-control mb-2">
-                        <label for="fname">Password</label>
+                        <label for="password">Password</label>
                         <input type="password" name="password" autocomplete  placeholder="********" class=" password form-control mb-2">
-                        <label for="fname">Confirm Password</label>
-                        <input type="password" name="cpassword" autocomplete class="form-control mb-2 password">
+                        <label for="cpassword">Confirm Password</label>
+                        <input type="password" name="cpassword"  id="validation"
+                          placeholder="********"  autocomplete class="form-control mb-2 password">
                         <input type="checkbox" name="checkbox" onclick="showPassword()" class="py-2  mb-2 ">&nbsp;<code id="show">Show Password</code>
                         <br/>
+                        <span id="errspan"></span>
                         <label for="address">Address</label>
                         <textarea placeholder="U.k" name="address" class="form-control mt-0 mb-2" ></textarea>
                          <label for="joiningdate">Joining Date</label>
                             <div class="d-flex  mb-2" >
-                              <select  name="Jdate[]" class="form-control m-1">
-                                <option>Choose Day</option>
-                            </select>          
+                            <input type="text" name="jdate[]" placeholder="Date"  class="form-control m-1 w-50">      
+         
                             
-                            <select class="form-control m-1" name="Jdate[]">
+                            <select class="form-control m-1 w-50" name="Jdate[]" >
                                 <script>
                                 let month=["Choose Your Month","January","February","March","May","June","July","August","September","October","November","December"];
                                   month=month.map(item=>{
@@ -53,19 +63,8 @@ print_r($_POST);
                                   } 
                                   </script>
                             </select>          
-                            <select class="form-control m-1" name="Jdate[]">
-                                
-                            <option>Choose Year</option>
-                            </select>          
-                            
-                        
+                            <input type="text" placeholder="Year"  name="jdate[]"  class="form-control m-1 w-50">      
                         </div>                         
-
-
-
-
-
-
                          <input type="submit" name="submit" value="Signup"
                          class="btn btn-outline-secondary btn-block  form-control col-lg-4 col-12">
                         </form>
@@ -75,3 +74,23 @@ print_r($_POST);
         </div>
 </body>
 </html>
+<script>
+    let errr='';
+    let passValidation=document.getElementById('validation');
+    let ele=document.getElementById('errspan');
+    passValidation.addEventListener('keyup',function(){
+        let passValue=document.getElementsByClassName('password');
+        let pass1=passValue[0].value;
+        let pass2=passValue[1].value;
+        if(pass1===pass2){
+            (pass1!=' ' && pass2!='')?
+            ele.innerHTML='Passwrod match successfully':ele.innerHTML='';
+        }
+        else{
+            (pass1!=' ' && pass2!='')?
+            ele.innerHTML='Passwrod  not match successfully':ele.innerHTML='';
+        }
+             
+        
+    });
+ </script>
