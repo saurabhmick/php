@@ -26,7 +26,7 @@ $data=array(
 <body>
         <div class="container m-auto py-2 px-3 mt-5">
             <div class="card m-auto px-3">
-                <div class="card-header bg-secondary text-white text-center">
+                <div class="card-header  text-white text-center">
                    AD SIGNUP FORM 
                 </div>
                 <div class="card-body ">
@@ -49,7 +49,9 @@ $data=array(
                         <textarea placeholder="U.k" name="address" class="form-control mt-0 mb-2" ></textarea>
                          <label for="joiningdate">Joining Date</label>
                             <div class="d-flex  mb-2" >
-                            <input type="text" name="jdate[]" placeholder="Date"  class="form-control m-1 w-50">      
+                            <input type="text" name="jdate[]" placeholder="Date" 
+                            maxlength="2"
+                            class="form-control m-1 w-50">      
          
                             
                             <select class="form-control m-1 w-50" name="Jdate[]" >
@@ -63,7 +65,9 @@ $data=array(
                                   } 
                                   </script>
                             </select>          
-                            <input type="text" placeholder="Year"  name="jdate[]"  class="form-control m-1 w-50">      
+                            <input type="text" placeholder="Year"  name="jdate[]"  
+                            maxlength="4"    
+                            class="form-control m-1 w-50">      
                         </div>                         
                          <input type="submit" name="submit" value="Signup"
                          class="btn btn-outline-secondary btn-block  form-control col-lg-4 col-12">

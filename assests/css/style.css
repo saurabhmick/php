@@ -39,10 +39,13 @@ li{
 }
 .card-header{
    text-align: center;
-    background-color:#0000ff9c;
+    background-color:#0000ff9c !important;
     color:white;
     font-weight: 400;
 }
 label{
     color: blue !important;
+}
+.bg-secondary{
+    background-color: blue !important;
 }

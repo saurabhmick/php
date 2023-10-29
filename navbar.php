@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="container-fluid p-0 ">
-        <div class="header ">
-            <ul class="d-flex  bg-dark py-2">
+        <div class="header border ">
+            <ul class="d-inline-flex ">
                 <li><a><b>Advance</b>
                         <strong>T</strong>Echnologies   
                     </a></li>
